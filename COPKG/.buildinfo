@@ -1,0 +1,28 @@
+#product-info  {
+    product-name: "GNU Make";
+    version: "3.82";
+    original-source-location: "http://ftp.gnu.org/gnu/make/";
+    original-source-website: "http://www.gnu.org/software/make/";
+    license: "GPL";
+    packager: "Petter Strandmark";
+}
+
+
+x64  {
+    compiler: vc10-x64 ;
+ 
+    targets: { 
+				//Program
+				"Release\make.exe",
+			} ;
+ 
+    build-command: @"
+			msbuild /p:Platform=x64 /p:Configuration=Release make_msvc_net2003.sln
+			";
+
+    clean-command: @"
+			 rmdir /S /Q Release 2>NUL
+			 del config.h
+			 set ERRORLEVEL=0 
+			";
+}
