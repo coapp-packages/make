@@ -23,6 +23,7 @@ x64  {
     clean-command: @"
 			 rmdir /S /Q Release 2>NUL
 			 del config.h
+			 del *.sln.cache
 			 set ERRORLEVEL=0 
 			";
 }
